@@ -16,9 +16,8 @@ app.use('/server', express.static(path.join(__dirname, 'server')));
 io.on('connection', (socket) => {
     console.log('A user connected');
 
-    // Listen for chat messages from any client or server page
     socket.on('chat message', (msg) => {
-        io.emit('chat message', msg); // Broadcast the message to all clients and server
+        io.emit('chat message', msg); 
     });
 
     socket.on('disconnect', () => {
